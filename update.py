@@ -80,18 +80,19 @@ def train(bot_name: str, log_name: str, iter_size: int, is_continue: bool, epoch
 
     # epoch_size 回の訓練実行
     with tqdm.tqdm(range(epoch_size * iter_size)) as progress:
-        for epoch in progress:
-            for _ in range(0, iter_size, batch_size):
-                inputs_t, teaches_t = create_batch_pair_random(inputs, teaches, batch_size)
+        for itr in progress:
+            epoch = itr // iter_size
 
-                ptv_inputs: torch.Tensor = b.convert_itot(b.convert_stoi(inputs_t))
-                ptv_teachs: torch.Tensor = b.convert_itot(b.convert_stoi(teaches_t))
+            inputs_t, teaches_t = create_batch_pair_random(inputs, teaches, batch_size)
 
-                # Parameter Update.
-                loss = 0.00
-                loss = b.update(ptv_inputs, ptv_teachs)
+            ptv_inputs: torch.Tensor = b.convert_itot(b.convert_stoi(inputs_t))
+            ptv_teachs: torch.Tensor = b.convert_itot(b.convert_stoi(teaches_t))
 
-                progress.set_description("epoch {0}, loss: {1}".format(epoch, round(loss, 6)))
+            # Parameter Update.
+            loss = 0.00
+            loss = b.update(ptv_inputs, ptv_teachs)
+
+            progress.set_description("epoch {0}, loss: {1}".format(epoch, round(loss, 6)))
 
     print("Finished.")
 
