@@ -1,0 +1,9 @@
+.venv
+*__pycache__*
+logs
+*.pkl
+pytorch.txt
+.mypy_cache
+memory/*
+README.local.md
+
