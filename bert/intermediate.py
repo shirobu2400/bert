@@ -12,13 +12,5 @@ class BertIntermediate(torch.nn.Module):
         # self.intermediate_act_fn = utils.mish
 
     def forward(self, hidden_states: torch.Tensor) -> torch.Tensor:
-        """線形変換(中間層サイズに次元を拡張) + 活性化関数
-
-        Args:
-            hidden_states (torch.Tensor): SDA+MHA通過後の特徴ベクトル
-
-        Returns:
-            torch.Tensor: SDA+MHA通過後に次元拡張した特徴ベクトル
-        """
         hidden_states = self.intermediate_act_fn(self.dense(hidden_states))
         return hidden_states
