@@ -111,8 +111,9 @@ if __name__ == "__main__":
     parser.add_argument("-b", "--bot", type=str, default="memory/bot.pkl")
     parser.add_argument("-f", type=str, default="logs/rev.log")
     parser.add_argument("-i", type=int, default=0)
+    parser.add_argument("-e", type=int, default=100)
     parser.add_argument("-c", "--is_continue", action="store_true")
     args = parser.parse_args()
 
-    b = train(args.bot, args.f, args.i, args.is_continue)
+    b = train(args.bot, args.f, args.i, args.is_continue, args.e)
     test(b, args.f)
