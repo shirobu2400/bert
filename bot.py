@@ -46,10 +46,10 @@ class bot:
             type_vocab_size=self.csize,
             hidden_dropout_prob=0.10,
             scale_emb=True,
-            num_attention_heads=4,
+            num_attention_heads=12,
             attention_probs_dropout_prob=0.10,
             intermediate_size=4,
-            num_hidden_layers=128
+            num_hidden_layers=12
         )
         self.model: BERT.BertModel = BERT.BertModel(self.config).to(ptv_device)
 

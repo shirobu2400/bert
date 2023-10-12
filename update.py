@@ -49,7 +49,7 @@ def test(b: bot.bot, log_name: str, batch_size: int = 256):
             print(tt.replace("\n", ""), "<==>", aa)
 
 
-def train(bot_name: str, log_name: str, iter_size: int, is_continue: bool, epoch_size: int = 50, batch_size: int = 256):
+def train(bot_name: str, log_name: str, iter_size: int, is_continue: bool, epoch_size: int = 100, batch_size: int = 256):
 
     # df = pd.read_csv("Bokuraga_son.csv")
     # text = df["text"].values.tolist()
