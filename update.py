@@ -43,7 +43,7 @@ def test(b: bot.bot, log_name: str, batch_size: int = 256):
         x: torch.Tensor = b.convert_itot(b.convert_stoi(inputs_t))
 
         # t = t.replace("\n", "") + "\0"
-        p = b.forward(x, 1).cpu()
+        p = b.forward(x, 20).cpu()
         a = b.convert_itos([x.tolist() for x in p])
         for tt, aa in zip(t, a):
             print(tt.replace("\n", ""), "<==>", aa)
